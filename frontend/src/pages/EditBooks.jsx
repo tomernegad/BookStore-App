@@ -28,11 +28,11 @@ const EditBooks = () => {
       });
   }, []);
 
-  function handelSaveBook() {
+  function handelEditBook() {
     const data = { title, author, publishYear };
     setLoading(true);
     axios
-      .post("http://localhost:5555/books", data)
+      .put(`http://localhost:5555/books/${id}`, data)
       .then(() => {
         setLoading(false);
         navigate("/");
@@ -79,7 +79,7 @@ const EditBooks = () => {
           ></input>
         </div>
         <button
-          onClick={handelSaveBook}
+          onClick={handelEditBook}
           className=" m-8 bg-sky-400 text-black p-2 "
         >
           Save
