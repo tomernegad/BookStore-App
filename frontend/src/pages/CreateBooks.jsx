@@ -4,12 +4,15 @@ import Spinner from "../components/Spinner";
 import { useNavigate } from "react-router-dom";
 import BackButton from "../components/BackButton";
 import { useState } from "react";
+import { useSnackbar } from "notistack";
+
 const CreateBooks = () => {
   const navigate = useNavigate();
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
   const [publishYear, setPublishYear] = useState("");
   const [loading, setLoading] = useState(false);
+  const { enqueueSnackbar } = useSnackbar();
 
   function handelSaveBook() {
     const data = { title, author, publishYear };
@@ -18,11 +21,13 @@ const CreateBooks = () => {
       .post("http://localhost:5555/books", data)
       .then(() => {
         setLoading(false);
+        enqueueSnackbar("Book created successfully", { variant: "success" });
         navigate("/");
       })
       .catch((error) => {
-        console.log(error);
         setLoading(false);
+        enqueueSnackbar("Error", { variant: "error" });
+        console.log(error);
       });
   }
   return (
