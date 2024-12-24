@@ -48,7 +48,7 @@ const EditBooks = () => {
       });
   }
   return (
-    <div className="p-4">
+    <div className="min-h-screen p-4 bg-gradient-to-r from-blue-200 to-purple-200">
       {loading ? <Spinner /> : ""}
       <BackButton />
       <h1 className="text-3xl mt-4">Edit Book</h1>

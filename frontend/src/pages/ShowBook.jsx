@@ -22,7 +22,7 @@ const ShowBook = () => {
       });
   }, []);
   return (
-    <div className="p-4">
+    <div className="min-h-screen p-4 bg-gradient-to-r from-blue-200 to-purple-200">
       <BackButton />
       <h1 className="text-3xl my-4">ShowBook</h1>
       {loading ? (
