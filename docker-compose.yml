@@ -1,0 +1,24 @@
+version: '3.8'
+
+services:
+  backend:
+    build: ./backend
+    ports:
+      - "5555:5555"
+    environment:
+      - NODE_ENV=production
+    networks:
+      - bookstore-network
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
+    networks:
+      - bookstore-network
+
+networks:
+  bookstore-network:
+    driver: bridge
