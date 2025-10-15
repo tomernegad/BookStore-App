@@ -12,6 +12,11 @@ spec:
       labels:
         app: backend
     spec:
+      dnsPolicy: "None"
+      dnsConfig:
+        nameservers:
+          - 8.8.8.8
+          - 8.8.4.4
       containers:
       - name: backend
         image: bookstore-project-backend:latest
