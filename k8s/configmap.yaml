@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+data:
+  NODE_ENV: "production"
+  PORT: "5555"
+  MONGODB_URL: "mongodb://admin:password@mongodb-service:27017/books-collection?authSource=admin"
