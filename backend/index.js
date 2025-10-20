@@ -22,6 +22,7 @@ app.get("/", (req, res) => {
 
 app.use("/books", booksRoute); // use the bookRoute
 
+mongoose.set('strictQuery', false);
 mongoose
   .connect(mongoDBURL)
   .then(() => {
